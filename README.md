@@ -1,10 +1,38 @@
 # Smart Waste Management System
 
-This project implements a Smart Waste Management System using Convolutional Neural Networks (CNN) and Autoencoders to classify and detect anomalies in waste images.
+Welcome to the **Smart Waste Management System**! This project leverages advanced machine learning techniques, including **Convolutional Neural Networks (CNNs)** and **Autoencoders**, to classify waste into three categories and detect anomalies in waste images.
 
-## Project Structure
+## 🚀 Features
 
-## Requirements
+- **Waste Classification:** Classifies waste into three categories:
+  1. **Recyclable**
+  2. **Hazardous**
+  3. **Residual**
+- **Anomaly Detection:** Identifies anomalies in waste images for better sorting and management.
+- **Visualization:** Outputs classification results as image files for easy interpretation.
+
+## 📁 Project Structure
+
+```
+Smart_Waste_Management_System/
+|— notebooks/
+|   |-- train_cnn.ipynb
+|   |-- train_autoencoder.ipynb
+|— data/
+|   |-- train/
+|   |-- validation/
+|   |-- test/
+|— models/
+|   |-- cnn_model.h5
+|   |-- autoencoder_model.h5
+|— outputs/
+|   |-- classifications/
+|   |-- anomalies/
+|— requirements.txt
+|— README.md
+```
+
+## 🛠 Requirements
 
 - Python 3.x
 - TensorFlow
@@ -13,45 +41,56 @@ This project implements a Smart Waste Management System using Convolutional Neur
 - transformers
 - Pillow
 
-## Installation
+## 💾 Installation
 
-1. Clone the repository:
-
+1. **Clone the repository:**
    ```sh
    git clone https://github.com/yourusername/Smart_Waste_Management_System.git
    cd Smart_Waste_Management_System
    ```
 
-2. Install the required packages:
+2. **Install the dependencies:**
    ```sh
    pip install -r requirements.txt
    ```
 
-## Usage
+## 🧑‍💻 Usage
 
-1. **Dataset Preparation**: Place your dataset in the specified directory. Update the `dataset_dir` variable in the notebook with the path to your dataset.
+### 1. Dataset Preparation
+- Place your dataset in the `data/` directory.
+- Update the `dataset_dir` variable in the notebook with the path to your dataset.
 
-2. **Training the CNN Model**: The CNN model is built and trained using the training data. The model is then saved to `cnn_model.h5`.
+### 2. Training the CNN Model
+The CNN model is trained to classify waste images into three categories:
+- **Recyclable**
+- **Hazardous**
+- **Residual**
 
-3. **Feature Extraction**: Features are extracted from the trained CNN model for both training and validation data.
+The trained model is saved as `cnn_model.h5` in the `models/` directory.
 
-4. **Training the Autoencoder**: An autoencoder is built and trained using the extracted features.
+### 3. Feature Extraction
+Features are extracted from the trained CNN model for both training and validation datasets.
 
-5. **Anomaly Detection**: The trained autoencoder is used to detect anomalies in new data.
+### 4. Training the Autoencoder
+An autoencoder is built and trained using the extracted features to detect anomalies in waste images.
 
-6. **Evaluation**: The model's performance is evaluated using confusion matrices and classification reports.
+### 5. Anomaly Detection
+The trained autoencoder is used to detect anomalies in the test dataset.
 
-## Notebook Overview
+### 6. Visualization
+The classification results and anomaly detections are saved as images in the `outputs/` directory.
 
-- **Imports**: The necessary libraries and modules are imported.
-- **Dataset Path and Image Size**: The dataset path and categories are defined.
-- **Model Training**: The CNN model is built and trained.
-- **Feature Extraction**: Features are extracted using the trained CNN model.
-- **Autoencoder Training**: The autoencoder is built and trained.
-- **Anomaly Detection**: Anomalies are detected using the trained autoencoder.
-- **Evaluation**: The model's performance is evaluated using confusion matrices and classification reports.
+## 📖 Notebook Workflow
 
-## Example Code
+1. **Imports:** Load the necessary libraries and modules.
+2. **Dataset Path and Image Size:** Define the dataset path and categories.
+3. **Model Training:** Train the CNN model on the training dataset.
+4. **Feature Extraction:** Extract features using the trained CNN model.
+5. **Autoencoder Training:** Train the autoencoder using extracted features.
+6. **Anomaly Detection:** Detect anomalies using the trained autoencoder.
+7. **Evaluation:** Evaluate model performance using confusion matrices and classification reports.
+
+## 🖼 Example Code
 
 ```python
 # Train CNN model
@@ -62,7 +101,7 @@ cnn_history = cnn_model.fit(
     validation_data=validation_generator,
     callbacks=[lr_scheduler, early_stopping]
 )
-cnn_model.save('cnn_model.h5')
+cnn_model.save('models/cnn_model.h5')
 
 # Extract features
 train_features = prepare_autoencoder_data(train_generator, cnn_model)
@@ -74,11 +113,34 @@ autoencoder_history = train_autoencoder(autoencoder, train_features, validation_
 
 # Detect anomalies on new data
 test_generator = datagen.flow_from_directory(
-    'path/to/test/data',
+    'data/test/',
     target_size=(image_size, image_size),
     batch_size=batch_size,
     class_mode='categorical'
 )
-
-Make sure to update the repository URL and any other specific details as needed.
 ```
+
+## 🏆 Output Example
+
+- **Classification Results:** Each classified waste image is saved with its predicted label (Recyclable, Hazardous, or Residual).
+- ## ![Robot Setup]()
+- ## ![Robot Setup](Robot.jpg)
+- ## ![Robot Setup](Robot.jpg)
+- **Anomaly Detection Results:** Images with detected anomalies are highlighted and saved in the `outputs/anomalies/` directory.
+
+## 🤝 Contributing
+
+We welcome contributions to improve this project! Feel free to open issues or submit pull requests on [GitHub](https://github.com/yourusername/Smart_Waste_Management_System).
+
+## 📜 License
+
+This project is licensed under the MIT License.
+
+## 🌟 Acknowledgments
+
+Thanks to all contributors and the open-source community for their support!
+
+---
+
+Happy coding and let’s make waste management smarter and more sustainable! ♻️
+
