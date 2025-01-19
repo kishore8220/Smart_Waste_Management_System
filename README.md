@@ -123,9 +123,12 @@ test_generator = datagen.flow_from_directory(
 ## 🏆 Output Example
 
 - **Classification Results:** Each classified waste image is saved with its predicted label (Recyclable, Hazardous, or Residual).
-- ## ![Robot Setup]()
-- ## ![Robot Setup](Robot.jpg)
-- ## ![Robot Setup](Robot.jpg)
+- **Recyclable**
+- ## ![Robot Setup](Recyclable_Op.png)
+- **Hazardous**
+- ## ![Robot Setup](Hazardous_Op.png)
+- **Residual**
+- ## ![Robot Setup](Residual_Op.png)
 - **Anomaly Detection Results:** Images with detected anomalies are highlighted and saved in the `outputs/anomalies/` directory.
 
 ## 🤝 Contributing
